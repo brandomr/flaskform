@@ -1,0 +1,13 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - Tagger</title>
+    {% else %}
+    <title>Welcome to Tagger!</title>
+    {% endif %}
+  </head>
+  <body>
+
+    {% block content %}{% endblock %}
+  </body>
+</html>
