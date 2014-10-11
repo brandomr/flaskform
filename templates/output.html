@@ -8,8 +8,19 @@
 
 </br>
 </br>
-<h1>Text Length</h1>
-{{ manipulated_text }} characters
+<h1>Entities Extracted</h1>
+{% for item in extracted_text %}
+{{ item }}
+</br>
+{% endfor %}
+
+</br>
+</br>
+<h1>Tags</h1>
+{% for item in tagged_text %}
+{{ item }}
+</br>
+{% endfor %}
 
 </br>
 </br>
