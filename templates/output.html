@@ -1,0 +1,18 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Original Text</h1>
+{{ base_text }}
+
+</br>
+</br>
+<h1>Text Length</h1>
+{{ manipulated_text }} characters
+
+</br>
+</br>
+<a href='/flaskform'>Return home</a>
+
+{% endblock %}
