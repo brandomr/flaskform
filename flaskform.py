@@ -6,6 +6,8 @@ from wtforms import Form, BooleanField, TextField, PasswordField, validators, Te
 
 from sklearn.externals import joblib
 
+import urllib 
+
 # create our little application :)
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -68,7 +70,7 @@ def flaskform(name=None):
     	base_text = request.form['corpustext'] 
     	extracted_text = sorted(uniq(get_entitylist(np.array([base_text]),0)))
     	tagged_text = clf.predict(np.array([base_text]))
-    	session['base_text'] = base_text
+    	session['base_text'] = urllib.quote_plus(base_text.encode('utf-8'))
     	session['extracted_text'] = extracted_text
     	session['tagged_text'] = tagged_text
     	return redirect(url_for('output', base_text=base_text, extracted_text=extracted_text, tagged_text=tagged_text))
@@ -78,7 +80,7 @@ def flaskform(name=None):
 
 @app.route('/output', methods=['GET', 'POST'])
 def output():
-	base_text = session['base_text']
+	base_text = urllib.unquote_plus(session['base_text'].decode('utf-8'))
 	extracted_text = (session['extracted_text'])
 	tagged_text = (session['tagged_text'])
 	return render_template('output.html', title='flaskform', base_text=base_text, extracted_text=extracted_text, tagged_text=tagged_text)

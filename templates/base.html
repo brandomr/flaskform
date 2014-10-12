@@ -1,13 +1,23 @@
 <html>
   <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ url_for('static', filename='css/bootstrap-theme.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/theme.css') }}" rel="stylesheet">
+
+ 
     {% if title %}
     <title>{{ title }} - Tagger</title>
     {% else %}
     <title>Welcome to Tagger!</title>
     {% endif %}
   </head>
-  <body>
+  <body style="padding-top:25px">
+
 
     {% block content %}{% endblock %}
+
+
   </body>
 </html>

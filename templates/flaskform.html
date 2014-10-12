@@ -2,13 +2,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Enter your text</h1>
-  <form action="" method="post" name="corpus">
-   
-      <p>
-          Please enter your text:<br>
-          {{ form.corpustext(rows=20, cols=100) }}<br>
-      </p>
-      <p><input type="submit" value="Tag it"></p>
-  </form>
+<div class="container-fluid">
+	<div class="row">
+  		<div class="col-md-10 col-md-offset-1">
+  			<div class="jumbotron">
+	  			<h2>Welcome to Tagger</h2>
+	  			<p>This nifty little application let's you input some text and will auto-magically recognize entities in the
+	  			text plus suggest some tags for you.</p>
+
+				<br>
+				<div class="container">
+        			<form id="category_form" method="post" name="corpus">          
+	 					<div class="form-group"> 
+          				{{ form.corpustext(class="form-control", rows=15, placeholder="Enter your text here") }}
+						</div>
+      					<input type="submit" value="Tag it" class="btn btn-primary btn-lg pull-right">
+        			</form>
+        
+    			</div>    
+    		</div>
+    	</div>
+	</div>    
+</div>
+
 {% endblock %}

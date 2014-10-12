@@ -3,27 +3,48 @@
 
 {% block content %}
 
-<h1>Original Text</h1>
-{{ base_text }}
+<div class="container-fluid">
+    <div class="row">
+    </div>
+    <div class="row">
+    <div class="col-sm-1"></div>
+    	<div class="col-sm-2 sidebar affix" style="margin-left:20px">
+        	<ul class="nav nav-sidebar">
+        	   <li class="sidebar-brand"><a href="/flaskform">Home</a></li>
+            	<li class="active"><a href="#entities">Entities</a></li>
+            	<li><a href="#tags">Tags</a></li>
+            	<li><a href="#text">Original Text</a></li>
+          	</ul>
+		</div>
+    <div class="col-sm-1"></div>
+	<div class="col-sm-8">
+		<div id="entities" style="margin-top:-10px">
+			<h3>Entities Extracted</h3>
+			{% for item in extracted_text %}
+			{{ item }}
+			</br>
+			{% endfor %}
+		</div>
 
-</br>
-</br>
-<h1>Entities Extracted</h1>
-{% for item in extracted_text %}
-{{ item }}
-</br>
-{% endfor %}
+		</br>
+		<div id="tags">
+			<h3>Tags</h3>
+			{% for item in tagged_text %}
+			{{ item }}
+			</br>
+			{% endfor %}
+		</div>
 
-</br>
-</br>
-<h1>Tags</h1>
-{% for item in tagged_text %}
-{{ item }}
-</br>
-{% endfor %}
 
-</br>
-</br>
-<a href='/flaskform'>Return home</a>
+		</br>
+		<div id="text">
+			<h3>Original Text</h3>
+			{{ base_text }}
+		</div>
+	</div>
 
+</div>
+
+
+          
 {% endblock %}
