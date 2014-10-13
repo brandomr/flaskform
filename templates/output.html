@@ -39,7 +39,11 @@
 		</br>
 		<div id="text">
 			<h3>Original Text</h3>
+			{% autoescape false %}
 			{{ base_text }}
+			{% endautoescape %}
+			</br>
+			</br>
 		</div>
 	</div>
 

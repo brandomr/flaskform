@@ -57,7 +57,7 @@ def flaskform(name=None):
 
 @app.route('/output', methods=['GET', 'POST'])
 def output():
-	base_text = urllib.unquote_plus(session['base_text'].decode('utf-8'))
+	base_text = urllib.unquote_plus(session['base_text'].replace('%0D', '</br>').replace('%E2%80%9C', '"').replace('%E2%80%9D', '"').replace('%E2%80%99', '\'').replace('%E2%80%94', '-').decode('utf-8'))
 	print base_text
 	extracted_text = (session['extracted_text'])
 	tagged_text = (session['tagged_text'])
